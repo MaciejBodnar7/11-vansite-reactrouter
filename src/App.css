@@ -1,0 +1,89 @@
+body {
+  background-color: #f1ded0;
+}
+
+#root {
+  border: 0.5em solid white;
+  margin: 0 auto;
+  width: 450px;
+  height: 800px;
+  border-radius: 1.5em;
+  margin-top: 10dvh;
+  position: relative;
+}
+
+nav {
+  background-color: #fff6ed;
+  border-radius: 1em 1em 0 0;
+}
+
+.ndNav {
+  border-radius: 0;
+}
+
+section {
+  background-color: #fff6ed;
+  height: 624px;
+  flex: 1 1 625px;
+  overflow: hidden;
+}
+
+.landing-photo {
+  background-image: url("../public/image_53.png");
+  background-repeat: no-repeat;
+  background-color: #ccc;
+  background-size: cover;
+  background-position: center;
+}
+
+footer {
+  border-radius: 0 0 1em 1em;
+}
+
+.btn-f {
+  background-color: #ffe9d1;
+}
+
+.van {
+  width: 47%;
+  margin-bottom: 1em;
+}
+
+.simple {
+  background-color: #e17653;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  width: fit-content;
+  margin-top: -1em;
+  padding: 0.2em 0.6em;
+  border-radius: 0.3em;
+}
+
+.rugged {
+  background-color: rgb(0, 77, 0);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  width: fit-content;
+  margin-top: -1em;
+  padding: 0.15em 0.6em 0.3em 0.6em;
+  border-radius: 0.3em;
+}
+
+.luxury {
+  background-color: #000000;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  width: fit-content;
+  margin-top: -1em;
+  padding: 0.2em 0.6em;
+  border-radius: 0.3em;
+}
+
+.active {
+  color: black !important;
+  border-bottom: 2px solid black;
+  padding-bottom: 0.05em;
+}
