@@ -1,5 +1,6 @@
 import "../App.css"
 import React from "react"
+import { Link } from "react-router-dom"
 
 function HostVans() {
   const [vans, setVans] = React.useState([])
@@ -14,12 +15,16 @@ function HostVans() {
 
   const vansElement = vansSliced.map(van => {
     return (
-      <div className="flex w-full bg-white p-4 mb-4 h-24" key={van.id}>
-        <img className="rounded-md object-cover" src={van.imageUrl} />
-        <div className="flex flex-col ml-4 justify-center">
-          <p className="text-lg font-bold">{van.name}</p>
-          <p className="text-xs text-gray-700 font-bold">${van.price}/day</p>
-        </div>
+      <div key={van.id}>
+        <Link to={`/host/host-vans/${van.id}`}>
+          <div className="flex w-full bg-white p-4 mb-4 h-24">
+            <img className="rounded-md object-cover" src={van.imageUrl} />
+            <div className="flex flex-col ml-4 justify-center">
+              <p className="text-lg font-bold">{van.name}</p>
+              <p className="text-xs text-gray-700 font-bold">${van.price}/day</p>
+            </div>
+          </div>
+        </Link>
       </div>
     )
   })
