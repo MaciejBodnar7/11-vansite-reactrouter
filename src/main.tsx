@@ -11,6 +11,7 @@ import Dashboard from "./Host/Dashboard.tsx"
 import Income from "./Host/Income.tsx"
 import Reviews from "./Host/Reviews.tsx"
 import HostLayout from "./components/HostLayout.tsx"
+import HostVans from "./Host/HostVans.tsx"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="host" element={<HostLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="income" element={<Income />} />
+          <Route path="host-vans" element={<HostVans />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
       </Route>

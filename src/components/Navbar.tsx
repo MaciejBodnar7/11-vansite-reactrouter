@@ -1,24 +1,24 @@
 import "../App.css"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 function Navbar() {
   return (
     <>
       <nav className="flex items-center h-24 justify-center">
         <div className="flex justify-between items-center w-5/6">
-          <Link className="mr-6" to="/">
+          <NavLink className="mr-6" to="/" end>
             <p className="text-2xl font-black">#VANLIFE</p>
-          </Link>
+          </NavLink>
           <div>
-            <Link className="mr-6 font-bold text-gray-600" to="/host">
+            <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="/host">
               Host
-            </Link>
-            <Link className="mr-6 font-bold text-gray-600" to="/about">
+            </NavLink>
+            <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="/about">
               About
-            </Link>
-            <Link className="font-bold text-gray-600" to="/vans">
+            </NavLink>
+            <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="/vans">
               Vans
-            </Link>
+            </NavLink>
           </div>
         </div>
       </nav>

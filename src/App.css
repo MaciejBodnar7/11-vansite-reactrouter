@@ -24,6 +24,12 @@ nav {
 section {
   background-color: #fff6ed;
   height: 624px;
+  overflow: hidden;
+}
+
+article {
+  background-color: #fff6ed;
+  height: 549px;
   flex: 1 1 625px;
   overflow: hidden;
 }
@@ -49,6 +55,7 @@ footer {
   margin-bottom: 1em;
 }
 
+/* ----vansType---- */
 .simple {
   background-color: #e17653;
   color: white;
@@ -81,9 +88,28 @@ footer {
   padding: 0.2em 0.6em;
   border-radius: 0.3em;
 }
+/* ^^^^vansType^^^^ */
 
-.active {
+/* ----navbar---- */
+.my-link {
+  color: rgb(75 85 99);
+  font-weight: bold;
+  margin-right: 1.5rem;
+}
+
+.my-link:last-child {
+  margin: 0;
+}
+
+.my-link-active {
   color: black !important;
   border-bottom: 2px solid black;
   padding-bottom: 0.05em;
 }
+
+.my-link:hover {
+  color: black !important;
+  border-bottom: 2px solid black;
+  padding-bottom: 0.05em;
+}
+/* ^^^^navbar^^^^ */
