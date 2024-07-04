@@ -1,17 +1,8 @@
 import "../App.css"
-import { useParams } from "react-router-dom"
-import React from "react"
+import { useOutletContext } from "react-router-dom"
 
 function HostVanInfo() {
-  const params = useParams()
-
-  const [van, setVan] = React.useState(null)
-
-  React.useEffect(() => {
-    fetch(`/api/vans/${params.id}`)
-      .then(res => res.json())
-      .then(data => setVan(data.vans))
-  }, [params])
+  const [van] = useOutletContext()
 
   return (
     <>

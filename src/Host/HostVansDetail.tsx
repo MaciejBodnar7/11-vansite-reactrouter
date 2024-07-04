@@ -53,7 +53,7 @@ function HostVanDetail() {
                       Photos
                     </NavLink>
                   </div>
-                  <Outlet />
+                  <Outlet context={[van]} />
                 </div>
               </div>
             ) : (
