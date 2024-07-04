@@ -6,14 +6,12 @@ function HostVans() {
   const [vans, setVans] = React.useState([])
 
   React.useEffect(() => {
-    fetch("/api/vans")
+    fetch("/api/host/vans")
       .then(res => res.json())
       .then(data => setVans(data.vans))
   }, [])
 
-  const vansSliced = vans.slice(0, 3)
-
-  const vansElement = vansSliced.map(van => {
+  const vansElement = vans.map(van => {
     return (
       <div key={van.id}>
         <Link to={`/host/host-vans/${van.id}`}>

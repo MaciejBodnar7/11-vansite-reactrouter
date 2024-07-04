@@ -19,7 +19,7 @@ function VanDetail() {
         <section className="flex items-center flex-col w-full overflow-scroll">
           {van ? (
             <div className="flex flex-col w-5/6 pb-8">
-              <Link to="/vans">
+              <Link to=".." relative="path">
                 <p className="underline text-sm">
                   <i className="fa-solid fa-arrow-left"></i>
                   <span className="font-bold ml-1">Back to all vans</span>

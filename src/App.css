@@ -2,6 +2,11 @@ body {
   background-color: #f1ded0;
 }
 
+a {
+  width: fit-content;
+  height: fit-content;
+}
+
 #root {
   border: 0.5em solid white;
   margin: 0 auto;
@@ -104,12 +109,10 @@ footer {
 .my-link-active {
   color: black !important;
   border-bottom: 2px solid black;
-  padding-bottom: 0.05em;
 }
 
 .my-link:hover {
   color: black !important;
   border-bottom: 2px solid black;
-  padding-bottom: 0.05em;
 }
 /* ^^^^navbar^^^^ */

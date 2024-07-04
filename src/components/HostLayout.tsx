@@ -7,16 +7,16 @@ function HostLayout() {
     <>
       <nav className="ndNav flex justify-center">
         <div className="w-5/6 flex font-bold text-gray-600 pb-8 pt-4 text-base">
-          <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="/host" end>
+          <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="." end>
             Dashboard
           </NavLink>
-          <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="/host/income">
+          <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="income">
             Income
           </NavLink>
-          <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="/host/host-vans">
+          <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="host-vans">
             Vans
           </NavLink>
-          <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="/host/reviews">
+          <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="reviews">
             Reviews
           </NavLink>
         </div>

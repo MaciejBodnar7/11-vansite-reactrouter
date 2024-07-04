@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom"
 import "../App.css"
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 
 function HostVanDetail() {
   const params = useParams()
@@ -18,7 +19,7 @@ function HostVanDetail() {
       <main>
         <article className="flex flex-col items-center">
           <div className="flex flex-col w-5/6">
-            <Link to="/host/host-vans">
+            <Link to=".." relative="path">
               <p className="underline text-sm mb-6">
                 <i className="fa-solid fa-arrow-left"></i>
                 <span className="font-bold ml-1">Back to all vans</span>
@@ -35,7 +36,24 @@ function HostVanDetail() {
                   </div>
                 </div>
                 <div>
-                  <p>test</p>
+                  <div className="w-5/6 flex font-bold text-gray-600 mt-6 mb-6 text-base">
+                    <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="." end>
+                      Details
+                    </NavLink>
+                    <NavLink
+                      className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")}
+                      to="pricing"
+                    >
+                      Pricing
+                    </NavLink>
+                    <NavLink
+                      className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")}
+                      to="photos"
+                    >
+                      Photos
+                    </NavLink>
+                  </div>
+                  <Outlet />
                 </div>
               </div>
             ) : (

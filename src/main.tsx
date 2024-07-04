@@ -13,6 +13,9 @@ import Reviews from "./Host/Reviews.tsx"
 import HostLayout from "./components/HostLayout.tsx"
 import HostVans from "./Host/HostVans.tsx"
 import HostVanDetail from "./Host/HostVansDetail.tsx"
+import HostVanInfo from "./Host/HostVanInfo.tsx"
+import HostVanPhotos from "./Host/HostVanPhotos.tsx"
+import HostVanPricing from "./Host/HostVanPricing.tsx"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -27,7 +30,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route index element={<Dashboard />} />
           <Route path="income" element={<Income />} />
           <Route path="host-vans" element={<HostVans />} />
-          <Route path="host-vans/:id" element={<HostVanDetail />} />
+          <Route path="host-vans/:id" element={<HostVanDetail />}>
+            <Route index element={<HostVanInfo />}></Route>
+            <Route path="photos" element={<HostVanPhotos />}></Route>
+            <Route path="pricing" element={<HostVanPricing />}></Route>
+          </Route>
           <Route path="reviews" element={<Reviews />} />
         </Route>
       </Route>
