@@ -1,10 +1,10 @@
 import "./App.css"
-import { useParams } from "react-router-dom"
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useParams, useLocation } from "react-router-dom"
 
 function VanDetail() {
   const params = useParams()
+  const location = useLocation()
   const [van, setVan] = React.useState(null)
 
   React.useEffect(() => {
@@ -13,16 +13,19 @@ function VanDetail() {
       .then(data => setVan(data.vans))
   }, [params.id])
 
+  const search = location.state?.search || ""
+  const typeVan = location.state?.type || "all"
+
   return (
     <>
       <main>
         <section className="flex items-center flex-col w-full overflow-scroll">
           {van ? (
             <div className="flex flex-col w-5/6 pb-8">
-              <Link to=".." relative="path">
+              <Link to={`..?${search}`} relative="path">
                 <p className="underline text-sm">
                   <i className="fa-solid fa-arrow-left"></i>
-                  <span className="font-bold ml-1">Back to all vans</span>
+                  <span className="font-bold ml-1">Back to {typeVan} vans</span>
                 </p>
               </Link>
               <img className="rounded-md self-center mt-4" src={van.imageUrl} alt="" />

@@ -14,7 +14,7 @@ function HostVans() {
   const vansElement = vans.map(van => {
     return (
       <div key={van.id}>
-        <Link to={`/host/host-vans/${van.id}`}>
+        <Link to={`${van.id}`}>
           <div className="flex w-full bg-white p-4 mb-4 h-24">
             <img className="rounded-md object-cover" src={van.imageUrl} />
             <div className="flex flex-col ml-4 justify-center">

@@ -55,6 +55,17 @@ footer {
   background-color: #ffe9d1;
 }
 
+.simple-f {
+  background-color: #e17653;
+}
+
+.rugged-f {
+  background-color: rgb(0, 77, 0);
+}
+
+.luxury-f {
+  background-color: #000000;
+}
 .van {
   width: 47%;
   margin-bottom: 1em;
