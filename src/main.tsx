@@ -16,6 +16,7 @@ import HostVanDetail from "./Host/HostVansDetail.tsx"
 import HostVanInfo from "./Host/HostVanInfo.tsx"
 import HostVanPhotos from "./Host/HostVanPhotos.tsx"
 import HostVanPricing from "./Host/HostVanPricing.tsx"
+import ErrorPage from "./ErrorPage.tsx"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -37,6 +38,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           </Route>
           <Route path="reviews" element={<Reviews />} />
         </Route>
+        <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>
   </BrowserRouter>

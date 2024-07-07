@@ -47,8 +47,13 @@ article {
   background-position: center;
 }
 
+.gray-color {
+  background-color: #222222;
+}
+
 footer {
   border-radius: 0 0 1em 1em;
+  background-color: #222222;
 }
 
 .btn-f {
