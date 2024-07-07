@@ -1,20 +1,33 @@
 import "./App.css"
 import React from "react"
 import { NavLink, useSearchParams } from "react-router-dom"
+import { getVans } from "./api"
 
 function Vans() {
   const [vans, setVans] = React.useState([])
   const [searchParams, setSearchParams] = useSearchParams()
-  console.log()
+  const [loading, setLoading] = React.useState(false)
+  const [error, setError] = React.useState(null)
 
   const typeFilter = searchParams.get("type")
-  const displayVans = typeFilter ? vans.filter(van => van.type === typeFilter) : vans
 
   React.useEffect(() => {
-    fetch("/api/vans")
-      .then(res => res.json())
-      .then(data => setVans(data.vans))
+    async function loadVans() {
+      setLoading(true)
+      try {
+        const data = await getVans()
+        setVans(data)
+      } catch (err) {
+        setError(err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadVans()
   }, [])
+
+  const displayVans = typeFilter ? vans.filter(van => van.type === typeFilter) : vans
 
   const vansElement = displayVans.map(van => {
     return (
@@ -36,6 +49,28 @@ function Vans() {
       </div>
     )
   })
+
+  if (loading) {
+    return (
+      <section className="flex items-center flex-col w-full overflow-scroll">
+        <div className="w-5/6">
+          <h1 className="text-2xl font-bold">Loading...</h1>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="flex items-center flex-col w-full overflow-scroll">
+        <div className="w-5/6">
+          <h1 className="text-2xl font-bold">
+            There was an error: <br /> {error.message}
+          </h1>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <>
