@@ -115,7 +115,8 @@ footer {
 .my-link {
   color: rgb(75 85 99);
   font-weight: bold;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
+  transition: color 0.2s, border 0.05s;
 }
 
 .my-link:last-child {
@@ -130,5 +131,16 @@ footer {
 .my-link:hover {
   color: black !important;
   border-bottom: 2px solid black;
+}
+
+.my-link-login {
+  color: rgb(75 85 99);
+  font-weight: bold;
+  margin-right: 1.5rem;
+}
+
+.my-link-login:hover {
+  color: black !important;
+  border: 0;
 }
 /* ^^^^navbar^^^^ */

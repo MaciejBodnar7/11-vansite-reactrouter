@@ -17,6 +17,7 @@ import HostVanInfo from "./Host/HostVanInfo.tsx"
 import HostVanPhotos from "./Host/HostVanPhotos.tsx"
 import HostVanPricing from "./Host/HostVanPricing.tsx"
 import ErrorPage from "./ErrorPage.tsx"
+import Login from "./Login.tsx"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -26,6 +27,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="about" element={<About />} />
         <Route path="vans" element={<Vans />} />
         <Route path="vans/:id" element={<VanDetail />} />
+
+        <Route path="login" element={<Login />}></Route>
 
         <Route path="host" element={<HostLayout />}>
           <Route index element={<Dashboard />} />

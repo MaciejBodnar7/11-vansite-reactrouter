@@ -10,14 +10,22 @@ function Navbar() {
             <p className="text-2xl font-black">#VANLIFE</p>
           </NavLink>
           <div>
-            <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="/host">
+            <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="host">
               Host
             </NavLink>
-            <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="/about">
+            <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="about">
               About
             </NavLink>
-            <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="/vans">
+            <NavLink className={({ isActive }) => (isActive ? "my-link my-link-active" : "my-link")} to="vans">
               Vans
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "my-link my-link-login my-link-active border-0" : "my-link my-link-login border-0"
+              }
+              to="login"
+            >
+              <i className="fa-solid fa-circle-user"></i>
             </NavLink>
           </div>
         </div>
