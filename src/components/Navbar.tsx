@@ -2,6 +2,9 @@ import "../App.css"
 import { NavLink } from "react-router-dom"
 
 function Navbar() {
+  function fakeLogOut() {
+    localStorage.removeItem("loggedin")
+  }
   return (
     <>
       <nav className="flex items-center h-24 justify-center">
@@ -27,6 +30,9 @@ function Navbar() {
             >
               <i className="fa-solid fa-circle-user"></i>
             </NavLink>
+            <button className="bg-slate-200 -ml-5 px-2 rounded-full text-sm" onClick={fakeLogOut}>
+              x
+            </button>
           </div>
         </div>
       </nav>
