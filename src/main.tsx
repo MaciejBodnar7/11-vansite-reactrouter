@@ -18,6 +18,7 @@ import HostVanPhotos from "./Host/HostVanPhotos.tsx"
 import HostVanPricing from "./Host/HostVanPricing.tsx"
 import ErrorPage from "./ErrorPage.tsx"
 import Login from "./Login.tsx"
+import Authenticated from "./components/Authenticated.tsx"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -30,17 +31,20 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
         <Route path="login" element={<Login />}></Route>
 
-        <Route path="host" element={<HostLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="income" element={<Income />} />
-          <Route path="host-vans" element={<HostVans />} />
-          <Route path="host-vans/:id" element={<HostVanDetail />}>
-            <Route index element={<HostVanInfo />}></Route>
-            <Route path="photos" element={<HostVanPhotos />}></Route>
-            <Route path="pricing" element={<HostVanPricing />}></Route>
+        <Route element={<Authenticated />}>
+          <Route path="host" element={<HostLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="income" element={<Income />} />
+            <Route path="host-vans" element={<HostVans />} />
+            <Route path="host-vans/:id" element={<HostVanDetail />}>
+              <Route index element={<HostVanInfo />}></Route>
+              <Route path="photos" element={<HostVanPhotos />}></Route>
+              <Route path="pricing" element={<HostVanPricing />}></Route>
+            </Route>
+            <Route path="reviews" element={<Reviews />} />
           </Route>
-          <Route path="reviews" element={<Reviews />} />
         </Route>
+
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>

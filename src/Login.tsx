@@ -1,12 +1,15 @@
 import "./App.css"
 import React from "react"
+import { useLocation } from "react-router-dom"
+import { loginUser } from "./api"
 
 function Login() {
   const [loginFormData, setLoginFormData] = React.useState({ email: "", password: "" })
+  const location = useLocation()
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(loginFormData)
+    loginUser(loginFormData).then(data => console.log(data))
   }
 
   function handleChange(e) {
@@ -22,6 +25,11 @@ function Login() {
       <main className="flex flex-col">
         <section className="flex flex-col items-center">
           <div className="w-5/6 h-full flex flex-col items-center mt-10">
+            {location.state?.message ? (
+              <p className="mb-2 bg-white rounded-lg py-2 px-4 font-bold">
+                {location.state?.message && location.state.message}
+              </p>
+            ) : null}
             <h1 className="font-bold text-3xl">Sign in to your account</h1>
             <form onSubmit={handleSubmit} className="mt-6 flex flex-col w-full">
               <input
