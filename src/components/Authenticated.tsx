@@ -2,9 +2,9 @@ import "../App.css"
 import { Navigate, Outlet } from "react-router-dom"
 
 function Authenticated() {
-  const authenticated = false
+  const isLoggedIn = localStorage.getItem("loggedin")
 
-  if (!authenticated) {
+  if (!isLoggedIn) {
     return <Navigate to="/login" state={{ message: "You must log in first" }} />
   }
 

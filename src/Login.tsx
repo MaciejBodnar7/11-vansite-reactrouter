@@ -1,15 +1,31 @@
 import "./App.css"
 import React from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { loginUser } from "./api"
 
 function Login() {
   const [loginFormData, setLoginFormData] = React.useState({ email: "", password: "" })
+  const [status, setStatus] = React.useState("idle")
+  const [error, setError] = React.useState(null)
+
   const location = useLocation()
+  const navigate = useNavigate()
 
   function handleSubmit(e) {
     e.preventDefault()
-    loginUser(loginFormData).then(data => console.log(data))
+    setStatus("submitting")
+    loginUser(loginFormData)
+      .then(data => {
+        setError(null)
+        localStorage.setItem("loggedin", true)
+        navigate("/host")
+      })
+      .catch(err => {
+        setError(err)
+      })
+      .finally(() => {
+        setStatus("idle")
+      })
   }
 
   function handleChange(e) {
@@ -31,6 +47,7 @@ function Login() {
               </p>
             ) : null}
             <h1 className="font-bold text-3xl">Sign in to your account</h1>
+            {error?.message && <h3 className="mt-5">{error.message}</h3>}
             <form onSubmit={handleSubmit} className="mt-6 flex flex-col w-full">
               <input
                 className="p-2 rounded-lg border border-gray-300 rounded-b-none"
@@ -48,7 +65,14 @@ function Login() {
                 placeholder="Password"
                 value={loginFormData.password}
               />
-              <button className="bg-orange-400 text-white py-4 rounded-lg mt-6 font-bold">Log in</button>
+              <button
+                disabled={status === "submitting"}
+                className={`bg-orange-400 text-white py-4 rounded-lg mt-6 font-bold ${
+                  status === "submitting" ? "opacity-50" : null
+                }`}
+              >
+                {status === "submitting" ? "Logging in.." : "Log in"}
+              </button>
             </form>
           </div>
         </section>
